@@ -38,16 +38,17 @@ namespace AoC2022
             }
 
             var results = new List<HashSet<char>>();
-            foreach (var list in listOfGroups)
+            listOfGroups.ForEach(list =>
             {
-                var hashSet = new HashSet<char>(list.First());
-                foreach (var items in list.Skip(1))
-                {
-                    hashSet.IntersectWith(items);
-                }
-                results.Add(hashSet);
-            }
+                var intersection = list
+                   .Skip(1)
+                   .Aggregate(
+                       new HashSet<char>(list.First()),
+                       (a, b) => { a.IntersectWith(b); return a; }
+                   );
 
+                results.Add(intersection);
+            });
             return results.Select(x => GetValue(x.First())).Sum();
         }
 

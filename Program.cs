@@ -7,6 +7,3 @@ var results = new List<Result>()
 
 
 //TODO: Spectre.Console table
-
-var xd = await IAocResults.RunAndGetResults(DayThree.PartOneAndTwo);
-Console.ReadLine();
