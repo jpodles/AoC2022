@@ -1,5 +1,4 @@
 ﻿using System.Runtime.CompilerServices;
-using System.Runtime.ExceptionServices;
 
 namespace AoC2022
 {
@@ -14,10 +13,10 @@ namespace AoC2022
             .Sum();
 
         async static Task<int> PartTwo() => (await File.ReadAllLinesAsync("./Data/DayThree.txt"))
-                .Chunk(3)
-                .Select(group => group[0].Intersect(group[1]).Intersect(group[2]).Single())
-                .Select(GetPriority)
-                .Sum();
+            .Chunk(3)
+            .Select(group => group[0].Intersect(group[1]).Intersect(group[2]).Single())
+            .Select(GetPriority)
+            .Sum();
 
         static int GetPriority(char item) => char.IsLower(item) ? item - 96 : item - 38;
     }
