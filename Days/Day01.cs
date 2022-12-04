@@ -1,16 +1,16 @@
 ﻿using System.Runtime.CompilerServices;
 
-namespace AoC2022;
+namespace AoC2022.Days;
 
-internal class DayOne : IAocResults
+internal class Day01 : IAocResults
 {
-  
+
     public static async Task<ITuple> PartOneAndTwo()
     {
         var acc = 0;
         var calories = new List<int>();
 
-        await foreach (var line in File.ReadLinesAsync("./Data/DayOne.txt"))
+        await foreach (var line in File.ReadLinesAsync("./Data/Day01.txt"))
         {
             if (string.IsNullOrWhiteSpace(line))
             {

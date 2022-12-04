@@ -4,7 +4,7 @@ using System.Runtime.CompilerServices;
 
 namespace AoC2022;
 
-internal class DayFour : IAocResults
+internal class Day04 : IAocResults
 {
     public static async Task<ITuple> PartOneAndTwo() => (await PartOne(), await PartTwo());
     static async Task<int> PartOne() => (await PrepareData())
@@ -16,7 +16,7 @@ internal class DayFour : IAocResults
         .ToList().Count;
 
     async static Task<IEnumerable<(List<int>, List<int>)>> PrepareData() 
-        => (await File.ReadAllLinesAsync("./Data/DayFour.txt"))
+        => (await File.ReadAllLinesAsync("./Data/Day04.txt"))
         .Select(line => line.Split(",") switch { var arr => (First: PopulateList(arr[0]), Second: PopulateList(arr[1])) });
 
     static bool ContainsInList(IEnumerable<int> first, IEnumerable<int> second) 

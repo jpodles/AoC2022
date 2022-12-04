@@ -1,15 +1,15 @@
 ﻿using System.Runtime.CompilerServices;
 
-namespace AoC2022;
+namespace AoC2022.Days;
 
-internal class DayTwo : IAocResults
+internal class Day02 : IAocResults
 {
     public static async Task<ITuple> PartOneAndTwo()
     {
         var partOneResult = 0;
         var partTwoResult = 0;
 
-        await foreach (var line in File.ReadLinesAsync("./Data/DayTwo.txt"))
+        await foreach (var line in File.ReadLinesAsync("./Data/Day02.txt"))
         {
             var (oponent, player) = line.Split(" ") switch { var a => (a[0], a[1]) };
 
@@ -26,20 +26,20 @@ internal class DayTwo : IAocResults
     }
 
 
-    static int GetMatchResult(Shape playerShape, Shape oponentShape) 
+    static int GetMatchResult(Shape playerShape, Shape oponentShape)
         => (int)playerShape + playerShape switch
-    {
-        Shape.Rock => GetResult(oponentShape, Shape.Scissors, Shape.Paper),
-        Shape.Paper => GetResult(oponentShape, Shape.Rock, Shape.Scissors),
-        Shape.Scissors => GetResult(oponentShape, Shape.Paper, Shape.Rock),
-        _ => throw new NotImplementedException()
-    };
+        {
+            Shape.Rock => GetResult(oponentShape, Shape.Scissors, Shape.Paper),
+            Shape.Paper => GetResult(oponentShape, Shape.Rock, Shape.Scissors),
+            Shape.Scissors => GetResult(oponentShape, Shape.Paper, Shape.Rock),
+            _ => throw new NotImplementedException()
+        };
 
     static int GetResult(Shape oponentShape, Shape winningForPlayer, Shape losingForPlayer)
     {
-        if (oponentShape == winningForPlayer) 
+        if (oponentShape == winningForPlayer)
             return (int)MatchResult.Win;
-        if (oponentShape == losingForPlayer) 
+        if (oponentShape == losingForPlayer)
             return (int)MatchResult.Lose;
         return (int)MatchResult.Draw;
     }
