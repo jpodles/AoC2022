@@ -13,7 +13,7 @@ internal interface IAocResults
         for (int i = 0; i < result.Length; i++)
         {
             var part = i + 1;
-            var r = (int)(result[i] ?? 0);
+            var r = result[i] ?? "";
             resultList.Add(new Result(Day, part, r));
         }
         Day++;
