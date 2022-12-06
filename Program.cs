@@ -8,7 +8,8 @@ var results = new List<Result>()
     .Concat(await IAocResults.RunAndGetResults(Day02.PartOneAndTwo))
     .Concat(await IAocResults.RunAndGetResults(Day03.PartOneAndTwo))
     .Concat(await IAocResults.RunAndGetResults(Day04.PartOneAndTwo))
-    .Concat(await IAocResults.RunAndGetResults(Day05.PartOneAndTwo));
+    .Concat(await IAocResults.RunAndGetResults(Day05.PartOneAndTwo))
+    .Concat(await IAocResults.RunAndGetResults(Day06.PartOneAndTwo));
 
 
 

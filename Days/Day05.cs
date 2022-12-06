@@ -1,12 +1,10 @@
-﻿using System.IO.Pipes;
-using System.Linq;
-using System.Runtime.CompilerServices;
+﻿using System.Runtime.CompilerServices;
 using System.Text.RegularExpressions;
 
 namespace AoC2022.Days;
 
 internal partial class Day05 : IAocResults
-{  
+{
     public static List<Stack<char>> stacks = new();
 
     public async static Task<ITuple> PartOneAndTwo() => (await Move(CrateMover9000), await Move(CrateMover9001));
@@ -53,12 +51,12 @@ internal partial class Day05 : IAocResults
             result.Add(stack.Peek());
         }
 
-        return new string(result.ToArray());        
+        return new string(result.ToArray());
     }
 
     public static void CrateMover9000(int amount, int from, int to)
     {
-        for(int i = 0; i < amount; i++)
+        for (int i = 0; i < amount; i++)
         {
             stacks[to].Push(stacks[from].Pop());
 
